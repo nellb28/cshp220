@@ -51,10 +51,12 @@ namespace TicTacToe
 
         private bool determineWinner()
         {
-           // foreach (Button c in uxGrid.Children) 
-           // {
-           //     MessageBox.Show($"{c.Tag} = {c.IsEnabled}");   
-           // }
+            //foreach (Button c in uxGrid.Children) 
+            //{
+            //    MessageBox.Show($"{c.Tag} = {c.IsEnabled}");   
+            //}
+            MessageBox.Show("Row = " + uxGrid.Selected);
+
             return false;
 
         }

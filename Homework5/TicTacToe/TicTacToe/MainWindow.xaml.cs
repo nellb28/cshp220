@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -13,12 +14,25 @@ namespace TicTacToe
         bool turn = true; //when true = X turn false = y turn
         int turnCount = 0;
         string whoTurn = "";
+        bool?[,] gridData = new bool?[3, 3];
 
         public MainWindow()
         {
             InitializeComponent();
+            initializeArray();
             whoTurn = "X";
             displayWhosTurn();
+        }
+
+        private void initializeArray()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                for (int j = 0; j < 3; j++)
+                {
+                    gridData[i, j] = null;
+                }
+            }
         }
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
@@ -35,6 +49,8 @@ namespace TicTacToe
         {
             Button gridButton = sender as Button;
             gridButton.IsEnabled = false;
+            string[] s  =  gridButton.Tag.ToString().Split(',');
+            gridData[Int32.Parse(s[0]), Int32.Parse(s[1])] = turn;
 
             if (determineWinner())
             {
@@ -55,7 +71,7 @@ namespace TicTacToe
             //{
             //    MessageBox.Show($"{c.Tag} = {c.IsEnabled}");   
             //}
-            MessageBox.Show("Row = " + uxGrid.Selected);
+            //MessageBox.Show("Row = " + uxGrid.Selected);
 
             return false;
 

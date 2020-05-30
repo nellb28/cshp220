@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace TicTacToe
@@ -11,6 +12,7 @@ namespace TicTacToe
 
         bool turn = true; //when true = X turn false = y turn
         int turn_count = 0;
+        string whoTurn = "";
 
         public MainWindow()
         {
@@ -29,23 +31,31 @@ namespace TicTacToe
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string whoTurn = "";
-            Button btn = sender as Button;
+            Button tile = sender as Button;
+            tile.IsEnabled = false;
+            turn_count++;
+            setWhosTurn(tile);
+            displayWhosTurn();
+        }
+
+        private void setWhosTurn(Button tile)
+        {
             if (turn)
             {
-                btn.Content = 'X';
+                tile.Content = 'X';
                 whoTurn = "O";
                 turn = false;
             }
             else
             {
-                btn.Content = '0';
+                tile.Content = '0';
                 whoTurn = "X";
                 turn = true;
             }
+        }
 
-            btn.IsEnabled = false;
-            turn_count++;
+        private void displayWhosTurn()
+        {
             uxTurn.Text = $"it's {whoTurn} turn.";
         }
     }

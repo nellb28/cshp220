@@ -5,9 +5,6 @@ using System.Windows.Controls;
 
 namespace TicTacToe
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
 
@@ -51,14 +48,16 @@ namespace TicTacToe
             gridButton.IsEnabled = false;
             string[] s  =  gridButton.Tag.ToString().Split(',');
             gridData[Int32.Parse(s[0]), Int32.Parse(s[1])] = turn;
+            turnCount++;
+            setGridButton(gridButton);
+
 
             if (determineWinner())
             {
-                MessageBox.Show("Tic Tab Toe!");
+                MessageBox.Show("Tic Tac Toe!");
+                startNewGame();
             } else
             {
-                turnCount++;
-                setGridButton(gridButton);
                 setWhosTurn();
                 displayWhosTurn();
             }
@@ -67,13 +66,45 @@ namespace TicTacToe
 
         private bool determineWinner()
         {
-            //foreach (Button c in uxGrid.Children) 
-            //{
-            //    MessageBox.Show($"{c.Tag} = {c.IsEnabled}");   
-            //}
-            //MessageBox.Show("Row = " + uxGrid.Selected);
-
-            return false;
+            //check for tic-tac-toe in rows
+            if ((gridData[0, 0] != null) && (gridData[0, 0] == gridData[0, 1]) && (gridData[0, 1] == gridData[0, 2]))
+            {
+                return true;
+            }
+            else if ((gridData[1, 0] != null) && (gridData[1, 0] == gridData[1, 1]) && (gridData[1, 1] == gridData[1, 2]))
+            {
+                return true;
+            }
+            else if ((gridData[2, 0] != null) && (gridData[2, 0] == gridData[2, 1]) && (gridData[2, 1] == gridData[2, 2]))
+            {
+                return true;
+            }
+            //check for tic-tac-toe in columns
+            else if ((gridData[0, 0] != null) && (gridData[0, 0] == gridData[1, 0]) && (gridData[1, 0] == gridData[2, 0]))
+            {
+                return true;
+            }
+            else if ((gridData[0, 1] != null) && (gridData[0, 1] == gridData[1, 1]) && (gridData[1, 1] == gridData[2, 1]))
+            {
+                return true;
+            }
+            else if ((gridData[0, 2] != null) && (gridData[0, 2] == gridData[1, 2]) && (gridData[1, 2] == gridData[2, 2]))
+            {
+                return true;
+            }
+            //check for tic-tac-toe in diagonals
+            else if ((gridData[0, 0] != null) && (gridData[0, 0] == gridData[1, 1]) && (gridData[1, 1] == gridData[2, 2]))
+            {
+                return true;
+            }
+            else if ((gridData[2, 0] != null) && (gridData[2, 0] == gridData[1, 1]) && (gridData[1, 1] == gridData[0, 2]))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
 
         }
 
@@ -94,32 +125,31 @@ namespace TicTacToe
 
         private void setGridButton(Button gridButton)
         {
-            if (turnCount < 9)
-            {
-                if (turn)
-                {
-                    gridButton.Content = 'X';
-                    whoTurn = "O";
-                    turn = false;
-                }
-                else
-                {
-                    gridButton.Content = '0';
-                    whoTurn = "X";
-                    turn = true;
-                }
-            }
-            else 
+            if (turnCount >= 9)
             {
                 MessageBox.Show("Game is Tied! No Winner");
                 startNewGame();
+                return;
             }
 
+            if (turn)
+            {
+                gridButton.Content = 'X';
+                whoTurn = "O";
+                turn = false;
+            }
+            else
+            {
+                gridButton.Content = '0';
+                whoTurn = "X";
+                turn = true;
+            }
             setWhosTurn();
         }
 
         private void startNewGame()
         {
+            initializeArray();
             foreach (Button gridButton in uxGrid.Children)
             {
                 gridButton.Content = "";

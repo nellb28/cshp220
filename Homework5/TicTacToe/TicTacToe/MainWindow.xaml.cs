@@ -11,12 +11,14 @@ namespace TicTacToe
     {
 
         bool turn = true; //when true = X turn false = y turn
-        int turn_count = 0;
+        int turnCount = 0;
         string whoTurn = "";
 
         public MainWindow()
         {
             InitializeComponent();
+            whoTurn = "X";
+            displayWhosTurn();
         }
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
@@ -31,26 +33,60 @@ namespace TicTacToe
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button tile = sender as Button;
-            tile.IsEnabled = false;
-            turn_count++;
-            setWhosTurn(tile);
-            displayWhosTurn();
+            Button gridButton = sender as Button;
+            gridButton.IsEnabled = false;
+
+            if (determineWinner())
+            {
+                MessageBox.Show("Tic Tab Toe!");
+            } else
+            {
+                turnCount++;
+                setGridButton(gridButton);
+                setWhosTurn();
+                displayWhosTurn();
+            }
+
         }
 
-        private void setWhosTurn(Button tile)
+        private bool determineWinner()
         {
-            if (turn_count < 9)
+           // foreach (Button c in uxGrid.Children) 
+           // {
+           //     MessageBox.Show($"{c.Tag} = {c.IsEnabled}");   
+           // }
+            return false;
+
+        }
+
+        private void setWhosTurn()
+        {
+            if (turn)
+            {
+                whoTurn = "O";
+                turn = false;
+            }
+            else
+            {
+                whoTurn = "X";
+                turn = true;
+            }
+        }
+
+
+        private void setGridButton(Button gridButton)
+        {
+            if (turnCount < 9)
             {
                 if (turn)
                 {
-                    tile.Content = 'X';
+                    gridButton.Content = 'X';
                     whoTurn = "O";
                     turn = false;
                 }
                 else
                 {
-                    tile.Content = '0';
+                    gridButton.Content = '0';
                     whoTurn = "X";
                     turn = true;
                 }
@@ -60,11 +96,22 @@ namespace TicTacToe
                 MessageBox.Show("Game is Tied! No Winner");
                 startNewGame();
             }
+
+            setWhosTurn();
         }
 
         private void startNewGame()
         {
-            throw new NotImplementedException();
+            foreach (Button gridButton in uxGrid.Children)
+            {
+                gridButton.Content = "";
+                gridButton.IsEnabled = true;
+            }
+
+            turn = true;
+            turnCount = 0;
+            whoTurn = "X";
+            displayWhosTurn();
         }
 
         private void displayWhosTurn()

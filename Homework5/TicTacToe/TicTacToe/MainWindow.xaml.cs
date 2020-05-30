@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace TicTacToe
 {
@@ -20,9 +8,45 @@ namespace TicTacToe
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        bool turn = true; //when true = X turn false = y turn
+        int turn_count = 0;
+
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void uxNewGame_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("New Game");
+        }
+
+        private void uxExit_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string whoTurn = "";
+            Button btn = sender as Button;
+            if (turn)
+            {
+                btn.Content = 'X';
+                whoTurn = "O";
+                turn = false;
+            }
+            else
+            {
+                btn.Content = '0';
+                whoTurn = "X";
+                turn = true;
+            }
+
+            btn.IsEnabled = false;
+            turn_count++;
+            uxTurn.Text = $"it's {whoTurn} turn.";
         }
     }
 }

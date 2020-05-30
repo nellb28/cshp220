@@ -125,13 +125,6 @@ namespace TicTacToe
 
         private void setGridButton(Button gridButton)
         {
-            if (turnCount >= 9)
-            {
-                MessageBox.Show("Game is Tied! No Winner");
-                startNewGame();
-                return;
-            }
-
             if (turn)
             {
                 gridButton.Content = 'X';
@@ -143,6 +136,12 @@ namespace TicTacToe
                 gridButton.Content = '0';
                 whoTurn = "X";
                 turn = true;
+            }
+            if (turnCount >= 9)
+            {
+                MessageBox.Show("Game is Tied! No Winner");
+                startNewGame();
+                return;
             }
             setWhosTurn();
         }

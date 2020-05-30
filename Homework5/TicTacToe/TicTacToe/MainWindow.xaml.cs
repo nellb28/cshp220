@@ -21,7 +21,7 @@ namespace TicTacToe
 
         private void uxNewGame_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("New Game");
+            startNewGame();
         }
 
         private void uxExit_Click(object sender, RoutedEventArgs e)
@@ -40,18 +40,31 @@ namespace TicTacToe
 
         private void setWhosTurn(Button tile)
         {
-            if (turn)
+            if (turn_count < 9)
             {
-                tile.Content = 'X';
-                whoTurn = "O";
-                turn = false;
+                if (turn)
+                {
+                    tile.Content = 'X';
+                    whoTurn = "O";
+                    turn = false;
+                }
+                else
+                {
+                    tile.Content = '0';
+                    whoTurn = "X";
+                    turn = true;
+                }
             }
-            else
+            else 
             {
-                tile.Content = '0';
-                whoTurn = "X";
-                turn = true;
+                MessageBox.Show("Game is Tied! No Winner");
+                startNewGame();
             }
+        }
+
+        private void startNewGame()
+        {
+            throw new NotImplementedException();
         }
 
         private void displayWhosTurn()

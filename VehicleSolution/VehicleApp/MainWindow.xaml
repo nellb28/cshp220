@@ -1,0 +1,34 @@
+﻿<Window x:Class="VehicleApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VehicleApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Menu>
+            <MenuItem Header="_File">
+                <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"></MenuItem>
+                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
+            </MenuItem>
+        </Menu>
+        <ListView x:Name="uxVehicleList" Height="200" SelectionChanged="uxContactList_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn DisplayMemberBinding="{Binding Vin}" Header="VIN" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding StockNumber}" Header="Stock Number" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Msrp}" Header="MSRP" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SellingPrice}" Header="Selling Price" Width="100" />
+                 </GridView>
+            </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
+                    <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click" />
+                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" />
+                </ContextMenu>
+            </ListView.ContextMenu>
+        </ListView>
+    </StackPanel>
+</Window>

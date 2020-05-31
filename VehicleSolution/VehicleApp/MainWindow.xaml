@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehicleApp"
         mc:Ignorable="d" 
-
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <Menu>
             <MenuItem Header="_File">
                 <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"></MenuItem>
+                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
             </MenuItem>
         </Menu>

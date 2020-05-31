@@ -60,5 +60,29 @@ namespace VehicleApp
             DialogResult = false;
             Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (Vehicle != null)
+            {
+                //if (Vehicle.Phone == "Home")
+                //{
+                //    uxHome.IsChecked = true;
+                //}
+                //else
+                //{
+                //    uxMobile.IsChecked = true;
+                //}
+                uxSubmit.Content = "Update";
+            }
+            else
+            {
+                Vehicle = new VehicleModel();
+                //TODO - add default values here
+                //Vehicle.CreatedDate = DateTime.Now;
+            }
+
+            uxGrid.DataContext = Vehicle;
+        }
     }
 }

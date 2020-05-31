@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using VehicleApp.Models;
 
 namespace VehicleApp
@@ -29,6 +18,14 @@ namespace VehicleApp
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
+            var window = new VehicleWindow();
+            window.Vehicle = selectedVehicle;
+
+            if (window.ShowDialog() == true)
+            {
+                App.VehiclesRepository.Update(window.Vehicle.ToRepositoryModel());
+                LoadVehicles();
+            }
         }
 
         private VehicleModel selectedVehicle;
@@ -40,7 +37,6 @@ namespace VehicleApp
 
         private void LoadVehicles()
         {
-
             var vehicles = App.VehiclesRepository.GetAll();
 
             uxVehicleList.ItemsSource = vehicles
@@ -75,6 +71,10 @@ namespace VehicleApp
             uxFileDelete.IsEnabled = (selectedVehicle != null);
         }
 
-        
+        private void uxFileChange_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileChange.IsEnabled = (selectedVehicle != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
+        }
     }
 }

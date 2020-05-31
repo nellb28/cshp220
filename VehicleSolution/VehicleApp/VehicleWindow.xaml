@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:VehicleApp"
         mc:Ignorable="d"
         Title="VehicleWindow" Height="300" Width="240"
-        FocusManager.FocusedElement="{Binding ElementName=uxName}">
+                Loaded="Window_Loaded"
+        FocusManager.FocusedElement="{Binding ElementName=uxVIN}">
 
     <Grid x:Name="uxGrid">
         <Grid.ColumnDefinitions>
@@ -24,7 +25,7 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Right">VIN:</TextBlock>
-        <TextBox x:Name="uxVIN" Grid.Column="1" Grid.Row="0"></TextBox>
+        <TextBox x:Name="uxVIN" Text="{Binding uxVIN}" Grid.Column="1" Grid.Row="0"></TextBox>
 
         <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Right">Stock Number:</TextBlock>
         <TextBox x:Name="uxStockNumber" Grid.Column="1" Grid.Row="1"></TextBox>

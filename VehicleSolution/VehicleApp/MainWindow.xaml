@@ -4,7 +4,8 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehicleApp"
-        mc:Ignorable="d"
+        mc:Ignorable="d" 
+
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <Menu>
@@ -13,7 +14,7 @@
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
             </MenuItem>
         </Menu>
-        <ListView x:Name="uxVehicleList" Height="200" SelectionChanged="uxContactList_SelectionChanged">
+        <ListView x:Name="uxVehicleList" Height="200" SelectionChanged="uxVehicleList_SelectionChanged">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Vin}" Header="VIN" Width="100" />

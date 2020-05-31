@@ -24,16 +24,21 @@ namespace VehicleApp
         public MainWindow()
         {
             InitializeComponent();
-            LoadContacts();
+            LoadVehicles();
         }
-        private VehicleModel selectedContact;
 
-        private void uxContactList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
-            selectedContact = (VehicleModel)uxVehicleList.SelectedValue;
         }
 
-        private void LoadContacts()
+        private VehicleModel selectedVehicle;
+
+        private void uxVehicleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedVehicle = (VehicleModel)uxVehicleList.SelectedValue;
+        }
+
+        private void LoadVehicles()
         {
 
             var vehicles = App.VehiclesRepository.GetAll();
@@ -49,22 +54,27 @@ namespace VehicleApp
 
             if (window.ShowDialog() == true)
             {
-                var uiContactModel = window.Vehicle;
+                var uiVehicleModel = window.Vehicle;
 
-                var repositoryContactModel = uiContactModel.ToRepositoryModel();
+                var repositoryVehicleModel = uiVehicleModel.ToRepositoryModel();
 
-                App.VehiclesRepository.Add(repositoryContactModel);
-                LoadContacts();
+                App.VehiclesRepository.Add(repositoryVehicleModel);
+                LoadVehicles();
             }
-        }
-
-        private void uxFileChange_Click(object sender, RoutedEventArgs e)
-        {
         }
 
         private void uxFileDelete_Click(object sender, RoutedEventArgs e)
         {
+            App.VehiclesRepository.Remove(selectedVehicle.Id);
+            selectedVehicle = null;
+            LoadVehicles();
         }
 
+        private void uxFileDelete_Loaded(object sender, RoutedEventArgs e)
+        {
+            uxFileDelete.IsEnabled = (selectedVehicle != null);
+        }
+
+        
     }
 }

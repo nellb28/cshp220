@@ -1,11 +1,15 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Text;
+using VehicleDB;
 
 namespace VehicleApp.Models
 {
     public class VehicleModel
     {
+        //failed attempt at automapper
+        //private static MapperConfiguration mapperConfiguration = new MapperConfiguration(t => t.CreateMap<Vehicles, VehiclesRepository.VehicleModel>)().ReverseMap());
         public int Id { get; set; }
         public string Vin { get; set; }
         public string StockNumber { get; set; }

@@ -76,5 +76,10 @@ namespace VehicleApp
             uxFileChange.IsEnabled = (selectedVehicle != null);
             uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
         }
+
+        private void uxVehicleList_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            uxFileChange_Click(sender, null);
+        }
     }
 }

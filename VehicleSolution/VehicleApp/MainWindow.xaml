@@ -14,13 +14,13 @@
                 <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
             </MenuItem>
         </Menu>
-        <ListView x:Name="uxVehicleList" Height="200" SelectionChanged="uxVehicleList_SelectionChanged">
+        <ListView x:Name="uxVehicleList" Height="200" SelectionChanged="uxVehicleList_SelectionChanged" MouseDoubleClick="uxVehicleList_MouseDoubleClick">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Vin}" Header="VIN" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding StockNumber}" Header="Stock Number" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Msrp}" Header="MSRP" Width="100" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SellingPrice}" Header="Selling Price" Width="100" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Vin}" Header="VIN" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding StockNumber}" Header="Stock Number" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Msrp}" Header="MSRP" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding SellingPrice}" Header="Selling Price" Width="Auto" />
                  </GridView>
             </ListView.View>
             <ListView.ContextMenu>

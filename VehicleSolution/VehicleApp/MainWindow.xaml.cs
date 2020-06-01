@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using VehicleApp.Models;
@@ -18,8 +19,13 @@ namespace VehicleApp
 
         private void uxFileChange_Click(object sender, RoutedEventArgs e)
         {
+            EditContact();
+        }
+
+        private void EditContact()
+        {
             var window = new VehicleWindow();
-            window.Vehicle = selectedVehicle;
+            window.Vehicle = selectedVehicle.Clone();
 
             if (window.ShowDialog() == true)
             {

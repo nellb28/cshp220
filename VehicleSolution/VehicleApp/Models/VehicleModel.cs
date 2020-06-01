@@ -23,6 +23,11 @@ namespace VehicleApp.Models
         public string Model { get; set; }
         public string Trim { get; set; }
 
+        public VehicleModel Clone() 
+        { 
+            return (VehicleModel)MemberwiseClone(); 
+        }
+
         public VehiclesRepository.VehicleModel ToRepositoryModel()
         {
             var repositoryModel = new VehiclesRepository.VehicleModel

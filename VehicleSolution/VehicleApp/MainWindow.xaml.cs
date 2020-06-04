@@ -25,7 +25,7 @@ namespace VehicleApp
         private void EditContact()
         {
             var window = new VehicleWindow();
-            window.Vehicle = selectedVehicle.Clone();
+            window.Vehicle = selectedVehicle;
 
             if (window.ShowDialog() == true)
             {

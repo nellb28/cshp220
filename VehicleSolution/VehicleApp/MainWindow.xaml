@@ -42,8 +42,8 @@
                     <GridViewColumn DisplayMemberBinding="{Binding Model}" Header="Model" Width="Auto" />
                     <GridViewColumn DisplayMemberBinding="{Binding Trim}" Header="Trim" Width="Auto" />
                     <GridViewColumn DisplayMemberBinding="{Binding Mileage}" Header="Mileage" Width="Auto" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Msrp}" Header="MSRP" Width="Auto" />
-                    <GridViewColumn DisplayMemberBinding="{Binding SellingPrice}" Header="Selling Price" Width="Auto" />
+                    <GridViewColumn DisplayMemberBinding="{Binding Msrp, StringFormat='{}{0:C0}'}" Header="MSRP" Width="Auto"/>
+                    <GridViewColumn DisplayMemberBinding="{Binding SellingPrice, StringFormat='{}{0:C0}'}" Header="Selling Price" Width="Auto" />
                 </GridView>
             </ListView.View>
             <ListView.ContextMenu>

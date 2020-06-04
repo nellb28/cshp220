@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -32,7 +33,8 @@ namespace VehicleApp
 
             Vehicle.Vin = uxVIN.Text;
             Vehicle.StockNumber = uxStockNumber.Text;
-            Vehicle.SellingPrice = Int32.Parse(uxSellingPrice.Text);
+            Vehicle.SellingPrice = Int32.Parse(uxSellingPrice.Text, NumberStyles.Currency);
+            Vehicle.Msrp = Int32.Parse(uxMSRPPrice.Text, NumberStyles.Currency);
             //Vehicle.Email = uxEmail.Text;
 
             //if (uxHome.IsChecked.Value)

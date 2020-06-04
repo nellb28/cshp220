@@ -5,14 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VehicleApp"
         mc:Ignorable="d" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        Background="{DynamicResource MaterialDesignPaper}"
+        TextElement.FontWeight="Medium"
+        TextElement.FontSize="14"
+        FontFamily="{materialDesign:MaterialDesignFont}"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
         <Menu>
             <MenuItem Header="_File">
-                <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click"></MenuItem>
-                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded" />
-                <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded" />
+                <MenuItem x:Name="uxFileNew" Header="_New" Click="uxFileNew_Click">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Plus" />
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem x:Name="uxFileChange" Header="_Modify" Click="uxFileChange_Click" Loaded="uxFileChange_Loaded">
+                    <MenuItem.Icon>
+                        <materialDesign:PackIcon Kind="Pencil" />
+                    </MenuItem.Icon>
+                </MenuItem>
+            <MenuItem x:Name="uxFileDelete" Header="_Delete" Click="uxFileDelete_Click" Loaded="uxFileDelete_Loaded">
+                <MenuItem.Icon>
+                    <materialDesign:PackIcon Kind="Minus" />
+                </MenuItem.Icon>
             </MenuItem>
+           </MenuItem>
         </Menu>
         <ListView x:Name="uxVehicleList" Height="200" SelectionChanged="uxVehicleList_SelectionChanged" MouseDoubleClick="uxVehicleList_MouseDoubleClick">
             <ListView.View>
@@ -25,9 +43,21 @@
             </ListView.View>
             <ListView.ContextMenu>
                 <ContextMenu>
-                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click"/>
-                    <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click" />
-                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" />
+                    <MenuItem x:Name="uxContextFileNew" Header="_New" Click="uxFileNew_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Plus" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="uxContextFileChange" Header="_Modify" Click="uxFileChange_Click">
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Pencil" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem x:Name="uxContextFileDelete" Header="_Delete" Click="uxFileDelete_Click" >
+                        <MenuItem.Icon>
+                            <materialDesign:PackIcon Kind="Minus" />
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </ContextMenu>
             </ListView.ContextMenu>
         </ListView>

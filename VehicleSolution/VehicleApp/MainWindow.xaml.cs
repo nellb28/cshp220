@@ -39,6 +39,8 @@ namespace VehicleApp
         private void uxVehicleList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             selectedVehicle = (VehicleModel)uxVehicleList.SelectedValue;
+            uxFileChange.IsEnabled = (selectedVehicle != null);
+            uxContextFileChange.IsEnabled = uxFileChange.IsEnabled;
         }
 
         private void LoadVehicles()

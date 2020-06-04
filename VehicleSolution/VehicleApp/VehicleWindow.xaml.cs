@@ -30,7 +30,7 @@ namespace VehicleApp
         private void uxSubmit_Click(object sender, RoutedEventArgs e)
         {
             Vehicle = new VehicleModel();
-
+            Vehicle.Id = Int32.Parse(uxId.Text);
             Vehicle.Vin = uxVIN.Text;
             Vehicle.StockNumber = uxStockNumber.Text;
             Vehicle.SellingPrice = Int32.Parse(uxSellingPrice.Text, NumberStyles.Currency);

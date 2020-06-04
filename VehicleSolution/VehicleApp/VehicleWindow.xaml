@@ -36,6 +36,9 @@
         <materialDesign:PackIcon Kind="Star" Grid.Row="0" Grid.Column="0"/>
         <materialDesign:PackIcon Kind="Star" Grid.Row="1" Grid.Column="0"/>
         <TextBlock Grid.Column="1" Grid.Row="0" Margin="8 0 8 0" HorizontalAlignment="Right">VIN:</TextBlock>
+        <TextBox x:Name="uxId" Text="{Binding Id}" Grid.Column="2" Grid.Row="0"></TextBox>
+
+        <TextBlock Grid.Column="1" Grid.Row="0" Margin="8 0 8 0" HorizontalAlignment="Right">VIN:</TextBlock>
         <TextBox x:Name="uxVIN" Text="{Binding Vin}" Grid.Column="2" Grid.Row="0"></TextBox>
 
         <TextBlock Grid.Column="1" Grid.Row="1"  Margin="8 0 8 0" HorizontalAlignment="Right">Stock Number:</TextBlock>

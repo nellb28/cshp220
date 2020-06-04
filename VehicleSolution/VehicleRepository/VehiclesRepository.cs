@@ -118,14 +118,6 @@ namespace VehiclesRepository
                 VehicleMake = vehicleModel.Make,
                 VehicleModel = vehicleModel.Model,
                 VehicleTrim = vehicleModel.Trim
-                //VehicleAge = vehicleModel.Age,
-                //VehicleCreatedDate = vehicleModel.CreatedDate,
-                //VehicleEmail = vehicleModel.Email,
-                //VehicleId = vehicleModel.Id,
-                //VehicleName = vehicleModel.Name,
-                //VehicleNotes = vehicleModel.Notes,
-                //VehiclePhoneNumber = vehicleModel.PhoneNumber,
-                //VehiclePhoneType = vehicleModel.PhoneType
             };
 
             return vehicleDb;

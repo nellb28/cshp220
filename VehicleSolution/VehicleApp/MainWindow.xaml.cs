@@ -67,6 +67,9 @@ namespace VehicleApp
             }
         }
 
+        //TODO - hide VehicleID
+        //Add all fields
+        //Add error validation
         private void uxFileDelete_Click(object sender, RoutedEventArgs e)
         {
             App.VehiclesRepository.Remove(selectedVehicle.Id);

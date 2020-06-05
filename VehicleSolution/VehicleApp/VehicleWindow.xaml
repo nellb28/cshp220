@@ -56,25 +56,28 @@
 
         <TextBlock Grid.Column="0" Grid.Row="4"  Margin="8 0 8 0" HorizontalAlignment="Right">Model:</TextBlock>
         <TextBox x:Name="uxModel" Text="{Binding Model}" Grid.Column="2" Grid.Row="4"></TextBox>
+
+        <TextBlock Grid.Column="0" Grid.Row="5"  Margin="8 0 8 0" HorizontalAlignment="Right">Trim:</TextBlock>
+        <TextBox x:Name="uxTrim" Text="{Binding Trim}" Grid.Column="2" Grid.Row="5"></TextBox>
         
-        <TextBlock Grid.Column="0" Grid.Row="5"  Margin="8 0 8 0" HorizontalAlignment="Right">MSRP Price:</TextBlock>
-        <TextBox x:Name="uxMSRPPrice" Text="{Binding Msrp, StringFormat='{}{0:C0}'}" Grid.Column="2" Grid.Row="5"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="6"  Margin="8 0 8 0" HorizontalAlignment="Right">MSRP Price:</TextBlock>
+        <TextBox x:Name="uxMSRPPrice" Text="{Binding Msrp, StringFormat='{}{0:C0}'}" Grid.Column="2" Grid.Row="6"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="6"  Margin="8 0 8 0" HorizontalAlignment="Right">Selling Price:</TextBlock>
-        <TextBox x:Name="uxSellingPrice" Text="{Binding SellingPrice, StringFormat='{}{0:C0}'}" Grid.Column="2" Grid.Row="6"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="7"  Margin="8 0 8 0" HorizontalAlignment="Right">Selling Price:</TextBlock>
+        <TextBox x:Name="uxSellingPrice" Text="{Binding SellingPrice, StringFormat='{}{0:C0}'}" Grid.Column="2" Grid.Row="7"></TextBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="7"  Margin="8 0 8 0" HorizontalAlignment="Right">Vehicle Type:</TextBlock>
-        <ComboBox x:Name="uxVehicleType" Grid.Column="2" Grid.Row="7">
+        <TextBlock Grid.Column="0" Grid.Row="8"  Margin="8 0 8 0" HorizontalAlignment="Right">Vehicle Type:</TextBlock>
+        <ComboBox x:Name="uxVehicleType" Grid.Column="2" Grid.Row="8">
             <ComboBoxItem Content="New"/>
             <ComboBoxItem Content="Used"/>
             <ComboBoxItem Content="Other"/>
         </ComboBox>
 
-        <TextBlock Grid.Column="0" Grid.Row="8"  Margin="8 0 8 0" HorizontalAlignment="Right">Mileage:</TextBlock>
-        <TextBox x:Name="uxMileage" Text="{Binding Mileage}" Grid.Column="2" Grid.Row="8"></TextBox>
+        <TextBlock Grid.Column="0" Grid.Row="9"  Margin="8 0 8 0" HorizontalAlignment="Right">Mileage:</TextBlock>
+        <TextBox x:Name="uxMileage" Text="{Binding Mileage}" Grid.Column="2" Grid.Row="9"></TextBox>
 
-        <TextBlock Grid.Column="0" Padding="9" Grid.Row="9"  Margin="8 0 8 0" HorizontalAlignment="Right">Dealer Certified:</TextBlock>
-        <CheckBox x:Name="uxDealerCertified" Padding="10" IsChecked="{Binding DealerCertified}" Grid.Column="2" Grid.Row="9"></CheckBox>
+        <TextBlock Grid.Column="0" Padding="9" Grid.Row="10"  Margin="8 0 8 0" HorizontalAlignment="Right">Dealer Certified:</TextBlock>
+        <CheckBox x:Name="uxDealerCertified" Padding="10" IsChecked="{Binding DealerCertified}" Grid.Column="2" Grid.Row="10"></CheckBox>
 
         <StackPanel Orientation="Horizontal" Grid.Column="1" Grid.Row="3">
         </StackPanel>

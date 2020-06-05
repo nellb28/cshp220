@@ -34,8 +34,16 @@ namespace VehicleApp
             Vehicle.Id = Int32.Parse(uxId.Text);
             Vehicle.Vin = uxVIN.Text;
             Vehicle.StockNumber = uxStockNumber.Text;
-            Vehicle.SellingPrice = Int32.Parse(uxSellingPrice.Text, NumberStyles.Currency);
             Vehicle.Msrp = Int32.Parse(uxMSRPPrice.Text, NumberStyles.Currency);
+            Vehicle.SellingPrice = Int32.Parse(uxSellingPrice.Text, NumberStyles.Currency);
+            Vehicle.Type = uxVehicleType.Text;
+            Vehicle.Mileage = Int32.Parse(uxMileage.Text);
+            Vehicle.DealerCertified = uxDealerCertified.IsChecked;
+            Vehicle.Year = Int32.Parse(uxYear.Text);
+            Vehicle.Make = uxMake.Text;
+            Vehicle.Model = uxModel.Text;
+            Vehicle.Trim = uxTrim.Text;
+            
             //Vehicle.Email = uxEmail.Text;
 
             //if (uxHome.IsChecked.Value)
